@@ -270,12 +270,13 @@ class CJSONRPCServer():
         #print( "response = \n" + res.text )
         res = {}
         res["code"] = str( result.status_code )
-        res["response"] = str( result.text )
+        res["response"] = json.loads( str(result.text ) )
 
-        result = {}
-        result["result"] = res
-        json.dumps(result).encode("utf8")
-        return result
+        #result = {}
+        #result["result"] = res
+        #json.dumps(result).encode("utf8")
+        #return result
+        return res
 
     def run_jsonrpc_server(self):
         print( "JSON-RPC Server starting..." )
