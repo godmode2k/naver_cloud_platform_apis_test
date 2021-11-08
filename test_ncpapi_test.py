@@ -62,5 +62,8 @@ if __name__ == "__main__":
 
     print( "res code = " + str(res.status_code) )
     print( "response = \n" + res.text )
-    print( json.loads(res.text) )
+    result = res.text.replace( "\\n", "" )
+    result = result.replace( "\\", "" )
+    result = result.replace( " ", "" )
+    print( json.loads(result) )
 
